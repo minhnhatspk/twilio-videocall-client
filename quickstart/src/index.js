@@ -97,7 +97,8 @@ $.getJSON('/token', function(data) {
 
   // Bind button to join Room.
   document.getElementById('button-join').onclick = function() {
-    roomName = document.getElementById('room-name').value;
+    roomName = '268b546e-1d15-49d2-b289-7f6c52f10772:a67004e8-7629-4f47-b257-dd133d92e704';
+    var token = document.getElementById('room-name').value;
     if (!roomName) {
       alert('Please enter a room name.');
       return;
@@ -115,7 +116,7 @@ $.getJSON('/token', function(data) {
 
     // Join the Room with the token from the server and the
     // LocalParticipant's Tracks.
-    Video.connect(data.token, connectOptions).then(roomJoined, function(error) {
+    Video.connect(token, connectOptions).then(roomJoined, function(error) {
       log('Could not connect to Twilio: ' + error.message);
     });
   };
